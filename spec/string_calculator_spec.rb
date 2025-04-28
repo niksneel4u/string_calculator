@@ -33,5 +33,20 @@ RSpec.describe StringCalculator do
       expect(calculator.add("10\n20\n30")).to eq(60)
       expect(calculator.add("5,5\n5")).to eq(15)
     end
+
+    it 'supports custom delimiter ;' do
+      calculator = StringCalculator.new
+      expect(calculator.add("//;\n1;2")).to eq(3)
+    end
+
+    # it 'raises an exception when negative numbers are provided' do
+    #   calculator = StringCalculator.new
+
+    #   expect { calculator.add('1,-2,3') }
+    #     .to raise_error('Negative numbers not allowed: -2')
+
+    #   expect { calculator.add('1,-2,-5,3') }
+    #     .to raise_error('Negative numbers not allowed: -2, -5')
+    # end
   end
 end
