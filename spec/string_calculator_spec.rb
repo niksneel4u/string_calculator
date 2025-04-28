@@ -26,5 +26,12 @@ RSpec.describe StringCalculator do
       expect(calculator.add('5,5,5,5')).to eq(20)
       expect(calculator.add('10,20,30,40,50')).to eq(150)
     end
+
+    it 'returns the sum when numbers are separated by commas or newlines' do
+      calculator = StringCalculator.new
+      expect(calculator.add("1\n2,3")).to eq(6)
+      expect(calculator.add("10\n20\n30")).to eq(60)
+      expect(calculator.add("5,5\n5")).to eq(15)
+    end
   end
 end
